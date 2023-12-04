@@ -26,6 +26,7 @@ class Movie{
         $title = $this->title;
         $content = $this->overview;
         $custom = $this->getVote();
+        $genere = $this->genre->name;
 
         include __DIR__."/../Views/card.php";
     }
@@ -55,7 +56,7 @@ foreach($genreList as $item){
 }
 
 foreach($movieList as $item){
-    $movie = new Movie($item['id'], $item['title'], $item['original_title'], $item['overview'], $item['vote_average'], $item['poster_path'], $item['original_language'],$genres);
+    $movie = new Movie($item['id'], $item['title'], $item['original_title'], $item['overview'], $item['vote_average'], $item['poster_path'], $item['original_language'],$genres[rand(0, count($genres)-1)]);
     array_push($movies, $movie);
 }
 

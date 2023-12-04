@@ -11,6 +11,7 @@
             <div class="d-flex justify-content-between align-items-flex-start">
                 <?= $custom ?>
                 <div>
+                    <?= $genere ?>
                 </div>
             </div>
 
