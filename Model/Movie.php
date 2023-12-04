@@ -55,7 +55,7 @@ foreach($genreList as $item){
 }
 
 foreach($movieList as $item){
-    $movie = new Movie($item['id'], $item['title'], $item['original_title'], $item['overview'], $item['vote_average'], $item['poster_path'], $item['original_language']);
+    $movie = new Movie($item['id'], $item['title'], $item['original_title'], $item['overview'], $item['vote_average'], $item['poster_path'], $item['original_language'],$genres);
     array_push($movies, $movie);
 }
 
