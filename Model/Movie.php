@@ -18,6 +18,15 @@ class Movie{
         $this->poster_path = $poster_path;
         $this->original_language = $original_language;
     }
+
+    public function printCard(){
+        $image = $this->poster_path;
+        $title = $this->title;
+        $content = $this->overview;
+        $custom = $this->vote;
+
+        include __DIR__."/../Views/card.php";
+    }
 }
 
 $movieString = file_get_contents(__DIR__.'/movie_db.json');
