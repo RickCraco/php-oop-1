@@ -31,7 +31,7 @@ class Movie{
     public function getVote(){
         $vote = ceil($this->vote / 2);
         $template = "<p class= 'm-0'>";
-        for($n=1; $n<=$vote; $n++){
+        for($n=1; $n<=5; $n++){
             $template .= $n <= $vote ? '<i class="fa-solid fa-star text-warning"></i>' : '<i class="fa-regular fa-star text-warning"></i>';
         }
         $template .= "</p>";
