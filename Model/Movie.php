@@ -1,5 +1,7 @@
 <?php
 
+include __DIR__ . '/Genre.php';
+
 class Movie{
     public $id;
     public $title;
