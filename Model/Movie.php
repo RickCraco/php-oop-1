@@ -23,7 +23,7 @@ class Movie{
         $image = $this->poster_path;
         $title = $this->title;
         $content = $this->overview;
-        $custom = $this->vote;
+        $custom = $this->getVote();
 
         include __DIR__."/../Views/card.php";
     }
