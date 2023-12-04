@@ -2,7 +2,7 @@
 
 include __DIR__ . '/Genre.php';
 
-class Movie{
+class Movie {
     public $id;
     public $title;
     public $original_title;
@@ -20,8 +20,9 @@ class Movie{
         $this->vote = $vote;
         $this->poster_path = $poster_path;
         $this->original_language = $original_language;
-        $this->genre = $genre;
+        $this->genre = $genre; // Corretto da $genres a $genre
     }
+    
 
     public function printCard(){
         $image = $this->poster_path;
@@ -53,12 +54,13 @@ $movies = [];
 $genres = [];
 
 foreach($genreList as $item){
-    $genre = new Genre($item['name']);
+    $genre = new Genre($item);
     array_push($genres, $genre);
 }
 
 foreach($movieList as $item){
-    $movie = new Movie($item['id'], $item['title'], $item['original_title'], $item['overview'], $item['vote_average'], $item['poster_path'], $item['original_language'],$genres[rand(0, count($genres)-1)]);
+    $randomGenre = $genres[rand(0, count($genres)-1)];
+    $movie = new Movie($item['id'], $item['title'], $item['original_title'], $item['overview'], $item['vote_average'], $item['poster_path'], $item['original_language'], $randomGenre);
     array_push($movies, $movie);
 }
 
