@@ -8,6 +8,7 @@ class Movie{
     public $vote;
     public $poster_path;
     public $original_language;
+    public $genre;
 
     function __construct($id, $title, $original_title, $overview, $vote, $poster_path, $original_language){
         $this->id = $id;
@@ -41,7 +42,16 @@ class Movie{
 
 $movieString = file_get_contents(__DIR__.'/movie_db.json');
 $movieList = json_decode($movieString, true);
+$genreString = file_get_contents(__DIR__.'/genre_db.json');
+$genreList = json_decode($genreString, true);
+
 $movies = [];
+$genres = [];
+
+foreach($genreList as $item){
+    $genre = new Genre($item['name']);
+    array_push($genres, $genre);
+}
 
 foreach($movieList as $item){
     $movie = new Movie($item['id'], $item['title'], $item['original_title'], $item['overview'], $item['vote_average'], $item['poster_path'], $item['original_language']);
