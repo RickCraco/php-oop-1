@@ -10,7 +10,7 @@ class Movie{
     public $original_language;
     public $genre;
 
-    function __construct($id, $title, $original_title, $overview, $vote, $poster_path, $original_language){
+    function __construct($id, $title, $original_title, $overview, $vote, $poster_path, $original_language, $genre){
         $this->id = $id;
         $this->title = $title;
         $this->original_title = $original_title;
@@ -18,6 +18,7 @@ class Movie{
         $this->vote = $vote;
         $this->poster_path = $poster_path;
         $this->original_language = $original_language;
+        $this->genre = $genre;
     }
 
     public function printCard(){
